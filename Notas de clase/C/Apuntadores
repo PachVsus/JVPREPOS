@@ -1,0 +1,23 @@
+Apuntadores
+
+- Variable em C "especial"
+- Que almacenará la dirección de memoria de otra variable
+
+Ejemplo:
+Alumno.
+- ID -> Int -> 4 bytes
+- Nombre -> Char[20] -> 20 bytes
+- Apellido -> Char[20] -> 20 bytes
+- Semestre -> Int -> 4 bytes
+- Tablas (6)
+    - Materias -> Char[20] -> 20 bytes
+    - Calificación -> Float -> 4 bytes
+
+Dir inicial -> 0001BA06 8 bytes -> 40 bits
+
+   ID      Nombre        Apellido         Semestre        Tablas
+====================================================================
+I       I           I                I                I            I
+====================================================================
+ 4 bytes   20 bytes      20 bytes         4 bytes        24 bytes
+Total = 72 bytes
