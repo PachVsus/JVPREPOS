@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(void) {
 
@@ -15,7 +16,7 @@ int main(void) {
     };
 
     struct Alumno Alumno1;
-    struct Alumno *pAlumno;
+    struct Alumno *Alumno;
 
     scanf("%d", &Alumno1.ID);
     scanf("%s", Alumno1.Nombre);

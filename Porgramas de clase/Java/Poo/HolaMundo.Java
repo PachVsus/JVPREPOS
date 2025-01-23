@@ -1,6 +1,6 @@
 package poo;
 
-import java.swing.JOptionPane;
+import javax.swing.JOptionPane;
 // Jesus was here
 
 public class HolaMundo {
