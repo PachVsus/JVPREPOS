@@ -9,7 +9,7 @@ typedef enum {
     COMPUTER_ENGINEERING,
     ELECTRONICS_ENGINEERING,
     MECHANICAL_ENGINEERING
- } Career;
+} Career;
 
 // Struct to store student data
 // explanation: https://www.geeksforgeeks.org/structures-c/
@@ -22,7 +22,7 @@ typedef struct {
     Career career;
 } Student;
 
- // Function to get the string representation of the career
+// Function to get the string representation of the career
 const char* getCareerName(Career career) {
     switch(career) {
         case PHYSICS: return "Physics";
@@ -34,8 +34,8 @@ const char* getCareerName(Career career) {
     }
 }
 
- // Function to display student information
- void displayStudentInfo(Student student) {
+// Function to display student information
+void displayStudentInfo(Student student) {
     printf("Memory location of this student data (1st byte): %p\n", &student);
     printf("\nAt %p => Student ID: %d\n", &(student.id), student.id);
     printf("At %p and %p => Name: %s %s\n", &(student.name), &(student.lastName), student.name, student.lastName);
@@ -44,8 +44,8 @@ const char* getCareerName(Career career) {
     printf("At %p => Career: %s\n", &(student.career), getCareerName(student.career));
 }
 
- // Function to capture career choice
- Career getCareerChoice() {
+// Function to capture career choice
+Career getCareerChoice() {
     int choice;
     printf("Choose Career (Enter the number):\n");
     printf("1. Physics\n");
@@ -64,9 +64,9 @@ const char* getCareerName(Career career) {
         case 5: return MECHANICAL_ENGINEERING;
         default: printf("Invalid choice, defaulting to Physics.\n"); return PHYSICS;
     }
- }
+}
 
- int main(void) {
+int main(void) {
     int numStudents;
     // Get the number of students from the user
     printf("Enter the number of students: ");
@@ -101,4 +101,4 @@ const char* getCareerName(Career career) {
     // Free the allocated memory
     free(students);
     return 0;
- }
+}
