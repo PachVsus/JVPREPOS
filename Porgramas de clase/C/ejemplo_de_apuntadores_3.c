@@ -1,25 +1,27 @@
+
+// Including necessary libraries
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 // Enum for Career options
 typedef enum {
-    PHYSICS,
-    MATHEMATICS,
-    COMPUTER_ENGINEERING,
-    ELECTRONICS_ENGINEERING,
-    MECHANICAL_ENGINEERING
+    PHYSICS,                  // Represents Physics career
+    MATHEMATICS,              // Represents Mathematics career
+    COMPUTER_ENGINEERING,     // Represents Computer Engineering career
+    ELECTRONICS_ENGINEERING,  // Represents Electronics Engineering career
+    MECHANICAL_ENGINEERING    // Represents Mechanical Engineering career
 } Career;
 
 // Struct to store student data
 // explanation: https://www.geeksforgeeks.org/structures-c/
 typedef struct {
-    int id;
-    char name[32];
-    char lastName[32];
-    int age;
-    int semester;
-    Career career;
+    int id;                   // Student ID
+    char name[32];            // Student's first name
+    char lastName[32];        // Student's last name
+    int age;                  // Student's age
+    int semester;             // Student's current semester
+    Career career;            // Student's career choice
 } Student;
 
 // Function to get the string representation of the career
