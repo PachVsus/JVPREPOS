@@ -1,20 +1,24 @@
 #!/bin/bash
-
 # Function to display the main menu
 show_main_menu() {
-    dialog --clear --title "Main Menu" \
-    --menu "Choose an option:" 15 50 4 \
-    1 "Option 1" \
-    2 "Option 2" \
-    3 "Option 3" \
-    4 "Exit" 2>menu_choice.txt
+    menu_choice=$(dialog --clear --title "Main Menu" \
+        --menu "Choose an option:" 15 50 4 \
+        1 "Option 1" \
+        2 "Option 2" \
+        3 "Option 3" \
+        4 "Exit" \
+        --output-fd 1)
 
-    menu_choice=$(<menu_choice.txt)
+    case $? in
+        1) exit 0 ;;  # User pressed Esc
+        255) exit 0 ;; # User pressed Ctrl+C
+    esac
+
     case $menu_choice in
-        1) show_option "Option 1";;
-        2) show_option "Option 2";;
-        3) show_option "Option 3";;
-        4) exit 0;;
+        1) show_option "Option 1" ;;
+        2) show_option "Option 2" ;;
+        3) show_option "Option 3" ;;
+        4) exit 0 ;;
     esac
 }
 
@@ -25,13 +29,10 @@ show_option() {
 }
 
 # Ensure dialog is installed
-if ! command -v dialog &> /dev/null
-then
-    echo "dialog could not be found, please install it."
-    exit
+if ! command -v dialog &> /dev/null; then
+    echo "Error: 'dialog' is not installed. Please install it."
+    exit 1
 fi
 
-# Main loop
-while true; do
-    show_main_menu
-done
+# Start the script
+show_main_menu
