@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "practica1",
+      "request": "launch",
+      "mainClass": "practica1",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
+      "name": "person",
+      "request": "launch",
+      "mainClass": "Poo.src.person",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
