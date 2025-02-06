@@ -3,6 +3,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "person",
+      "request": "launch",
+      "mainClass": "person",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
+      "name": "HolaMundo",
+      "request": "launch",
+      "mainClass": "HolaMundo",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
+      "name": "Fotomulta",
+      "request": "launch",
+      "mainClass": "Fotomulta",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "practica1",
       "request": "launch",
       "mainClass": "practica1",

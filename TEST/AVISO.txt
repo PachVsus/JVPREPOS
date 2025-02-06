@@ -1,0 +1,3 @@
+AVISO
+
+No crear packages, hacer el programa en src, asi si compila.

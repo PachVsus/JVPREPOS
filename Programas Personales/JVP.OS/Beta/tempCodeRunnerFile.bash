@@ -8,10 +8,9 @@ show_main_menu() {
         4 "Exit" \
         --output-fd 1)
 
-    case $? in
-        1) exit 0 ;;  # User pressed Esc
-        255) exit 0 ;; # User pressed Ctrl+C
-    esac
+    if [ $? -ne 0 ]; then
+        exit 0  # User pressed Esc or Ctrl+C
+    fi
 
     case $menu_choice in
         1) show_option "Option 1" ;;

@@ -1,4 +1,3 @@
-package poo;
 
 import javax.swing.JOptionPane;
 // Jesus was here
@@ -10,6 +9,10 @@ public class HolaMundo {
         System.out.printf("Edad: %d\n", edad);
         JOptionPane.showMessageDialog(null, "Hola");
         String name = JOptionPane.showInputDialog("Dame tu nombre: ");
-        System.out.println(name);
+        if (name != null) {
+            System.out.println(name);
+        } else {
+            System.out.println("No name provided.");
+        }
     }
 }

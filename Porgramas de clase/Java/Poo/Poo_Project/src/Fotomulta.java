@@ -5,7 +5,7 @@ public class Fotomulta {
     public static void main(String[] args) {
         // Solicita al usuario que introduzca la velocidad del vehículo
         String strVelocidad = JOptionPane.showInputDialog("Introduce la velocidad del vehiculo");
-        double velocidad = -1;
+        double velocidad = 0;
         
         try {
             // Intenta convertir la entrada del usuario a un número de tipo double

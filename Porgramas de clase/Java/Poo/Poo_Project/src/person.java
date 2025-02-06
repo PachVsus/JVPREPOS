@@ -1,4 +1,4 @@
-package Poo.src;
+
 
 // Define the person class
 public class person {
