@@ -1,7 +1,7 @@
 {
   "workbench.editor.decorations.colors": true,
   "C_Cpp.autocompleteAddParentheses": true,
-  "workbench.colorTheme": "Oldschool Terminal Theme (Green)",
+  "workbench.colorTheme": "punk-hacking-theme",
   "workbench.preferredDarkColorTheme": "Neon Dark Theme",
   "workbench.preferredHighContrastColorTheme": "Dark SynthWave '84",
   "workbench.preferredHighContrastLightColorTheme": "Dark Plus Oled 80 Dim",
