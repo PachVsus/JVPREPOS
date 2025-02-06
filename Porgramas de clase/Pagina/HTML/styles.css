@@ -1,0 +1,28 @@
+.container p {
+    color: red;
+}
+
+.container > p {
+    color: blue;
+}
+
+h2 + p {
+    color: green;
+}
+
+h3 ~ p {
+    color: purple;
+}
+
+/* Conclusiones
+¿Cómo afectó el uso de > en comparación con el espacio ( )?
+Afectó directamente a los elementos hijos de un contenedor, mientras que el espacio afecta a todos los elementos descendientes de un contenedor.
+
+¿Qué diferencia hay entre + y ~ al aplicar estilos a los párrafos después de h2 y h3?
+El signo + afecta al primer elemento hermano que se encuentre después del elemento seleccionado, mientras que el signo ~ afecta a todos los elementos hermanos que se encuentren después del elemento seleccionado.
+
+Si agregamos más párrafos después de h3, ¿también cambiarían de color? ¿Por qué?
+Sí, cambiarían de color, ya que el signo ~ afecta a todos los elementos hermanos que se encuentren después del elemento seleccionado.
+
+Estos operadores son muy útiles para aplicar estilos a elementos específicos de una página web, ya que permiten seleccionar elementos de manera más precisa y específica.
+*/
