@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Rectangle1",
+      "request": "launch",
+      "mainClass": "shape2d.Rectangle1",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
+      "name": "RGBColor",
+      "request": "launch",
+      "mainClass": "rgbcolor.RGBColor",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "person",
       "request": "launch",
       "mainClass": "person",
