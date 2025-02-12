@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void imprimir(int **matriz, int filas, int columnas);
+void imprimir(int **matriz, int filas, int columnas); // Prototipo de la función imprimir
 
 int main() {
     int filas, columnas;
@@ -12,17 +12,17 @@ int main() {
     printf("Ingrese el número de columnas: ");
     scanf("%d", &columnas);
 
-    int **matriz = (int **)malloc(filas * sizeof(int *));
-    if (matriz == NULL) {
-        printf("Error al asignar memoria a la matriz, no se pudo reservar.\n");
-        return -1;
+    int **matriz = (int **)malloc(filas * sizeof(int *)); // Reserva de memoria para la matriz
+    if (matriz == NULL) { // Verificación de la reserva de memoria
+        printf("Error al asignar memoria a la matriz, no se pudo reservar.\n");     // Mensaje de error
+        return -1; // Salida del programa con error
     }
 
     for (int i = 0; i < filas; i++) {
-        matriz[i] = (int *)malloc(columnas * sizeof(int));
+        matriz[i] = (int *)malloc(columnas * sizeof(int)); // Reserva de memoria para las filas de la matriz
         if (matriz[i] == NULL) {
-            printf("No se pudo reservar memoria para la fila %d de la matriz.\n", i);
-            return -2;
+            printf("No se pudo reservar memoria para la fila %d de la matriz.\n", i); // Mensaje de error
+            return -2; // Salida del programa con error
         }
     }
 
