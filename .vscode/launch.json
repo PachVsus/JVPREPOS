@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "HorarioClase_Test",
+      "request": "launch",
+      "mainClass": "shape2d.HorarioClase_Test",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "Rectangle1",
       "request": "launch",
       "mainClass": "shape2d.Rectangle1",
