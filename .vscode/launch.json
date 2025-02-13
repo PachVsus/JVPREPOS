@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Person",
+      "request": "launch",
+      "mainClass": "iteso.com.Person",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "HorarioClase_Test",
       "request": "launch",
       "mainClass": "shape2d.HorarioClase_Test",
