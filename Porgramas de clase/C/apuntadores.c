@@ -4,9 +4,17 @@
 
 int main(void) {
 
-    struct Alumno {
-        int ID;
-        char Nombre[20];
+    // (*) se usa para declarar un apuntador y para acceder a la direccion de memoria de una variable
+    // (&) se usa para acceder a la direccion de memoria de una variable
+    // Pasos para aplicar apuntadores
+    // 1. Declarar una variable, ejemplo: int a;
+    // 2. Declarar un apuntador, ejemplo: int *p;
+    // 3. Asignar la direccion de memoria de la variable a un apuntador, ejemplo: p = &a;
+    // 4. Acceder al valor de la variable a traves del apuntador, ejemplo: *p = 10;
+
+    struct Alumno { // Definicion de la estructura
+        int ID; // Campos de la estructura
+        char Nombre[20];   // Campos de la estructura
         char Apellido[20];
         int Semestre;
         struct Tablas {
@@ -16,7 +24,7 @@ int main(void) {
     };
 
     struct Alumno Alumno1;
-    struct Alumno *Alumno;
+    struct Alumno *Alumno;      // Declaracion de un apuntador a la estructura
 
     scanf("%d", &Alumno1.ID);
     scanf("%s", Alumno1.Nombre);
@@ -30,3 +38,4 @@ int main(void) {
 
     return 0;
 }
+
