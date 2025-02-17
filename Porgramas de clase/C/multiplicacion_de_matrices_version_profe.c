@@ -8,11 +8,11 @@ int main(void) {
     int N, M, P;
 
     printf("Este programa multiplica dos matrices.\n");
-    printf("Coloca el número de filas de la matriz A: ");
+    printf("Coloca el número de filas N de la matriz A: ");
     scanf("%d", &N);
-    printf("Coloca el número de columnas de la matriz A (y filas de la matriz B): ");
+    printf("Coloca el número de columnas M de la matriz A (que tambien seran las filas N de la matriz B): ");
     scanf("%d", &M);
-    printf("Coloca el número de columnas de la matriz B: ");
+    printf("Coloca el número de columnas M de la matriz B: ");
     scanf("%d", &P);
 
     a = (float **)malloc(N * sizeof(float *));
