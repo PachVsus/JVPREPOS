@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Estudiante",
+      "request": "launch",
+      "mainClass": "shape2d.Estudiante",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "Quadratic",
       "request": "launch",
       "mainClass": "iteso.com.Quadratic",

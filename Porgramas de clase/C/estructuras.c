@@ -8,3 +8,6 @@ struct header
     char signature[4];
     int data_offset;
 };
+
+// acdeder a los elementos de la estructura
+

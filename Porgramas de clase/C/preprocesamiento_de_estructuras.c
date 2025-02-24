@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #pragma pack ( 1 ) // 1 byte alignment
 
+/*El pragma sirve para forzar al compilador a
+alinear los datos de la estructura a un byte.*/
+
 /*En el siguiente ejemplo, mediante el uso
 de la directiva pragma de preprocesamiento
 forzamos a que la alineación de datos dentro
