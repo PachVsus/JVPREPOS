@@ -5,12 +5,18 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
+    -webkit-animation: fadeIn 2s ease-in-out;
+    -moz-animation: fadeIn 2s ease-in-out;
+    -o-animation: fadeIn 2s ease-in-out;
     animation: fadeIn 2s ease-in-out;
 }
 
 header {
     background-color: #333;
-    color: white;
+    -webkit-animation: slideDown 1s ease-in-out;
+    -moz-animation: slideDown 1s ease-in-out;
+    -o-animation: slideDown 1s ease-in-out;
+    animation: slideDown 1s ease-in-out;
     text-align: center;
     padding: 1rem;
     animation: slideDown 1s ease-in-out;
@@ -23,6 +29,10 @@ section {
 h2 {
     color: #333;
     animation: fadeIn 2s ease-in-out;
+    -webkit-animation: fadeInUp 1s ease-in-out;
+    -moz-animation: fadeInUp 1s ease-in-out;
+    -o-animation: fadeInUp 1s ease-in-out;
+    animation: fadeInUp 1s ease-in-out;
 }
 
 article {
@@ -38,7 +48,10 @@ ul {
 }
 
 li {
-    margin-bottom: 0.5rem;
+    -webkit-animation: slideUp 1s ease-in-out;
+    -moz-animation: slideUp 1s ease-in-out;
+    -o-animation: slideUp 1s ease-in-out;
+    animation: slideUp 1s ease-in-out;
     animation: fadeIn 1s ease-in-out;
 }
 

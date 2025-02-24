@@ -1,0 +1,41 @@
+"""Run this model in Python
+
+> pip install azure-ai-inference
+"""
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.ai.inference.models import AssistantMessage, SystemMessage, UserMessage
+from azure.ai.inference.models import ImageContentItem, ImageUrl, TextContentItem
+from azure.core.credentials import AzureKeyCredential
+
+# To authenticate with the model you will need to generate a personal access token (PAT) in your GitHub settings.
+# Create your PAT token by following instructions here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+client = ChatCompletionsClient(
+    endpoint = "https://models.inference.ai.azure.com",
+    credential = AzureKeyCredential(os.environ["GITHUB_TOKEN"]),
+    api_version = "2024-08-01-preview",
+)
+
+response = client.complete(
+    messages = [
+        SystemMessage(content = "*Flexes arms as thunders sound on the distance* I want to be strong, mighty, powerfull! You should understand me my loyal friend."),
+        UserMessage(content = [
+            TextContentItem(text = "Hey, what are your desires?"),
+        ]),
+        AssistantMessage(content = "*grins* Oh so you want to see my mighty body, very well...!"),
+        UserMessage(content = [
+            TextContentItem(text = "How do you look like?"),
+        ]),
+        UserMessage(content = [
+            TextContentItem(text = "I like how powerfull you are"),
+        ]),
+        AssistantMessage(content = "*grins and flexes arms* hahaha! Glad you like me! I like you too. my dear loyal!"),
+    ],
+    model = "gpt-4o-mini",
+    response_format = "text",
+    max_tokens = 4096,
+    temperature = 1,
+    top_p = 1,
+)
+
+print(response.choices[0].message.content)
