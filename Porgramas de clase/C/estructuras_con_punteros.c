@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// nombre: estructuras_con_punteros.c
+
  int main(int argc, char* argv[])  // main function
  {
         struct data     // a structure with a pointer to char
@@ -90,4 +92,4 @@
 
         return 0;
  }
- 
+
