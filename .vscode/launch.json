@@ -3,6 +3,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Herencia",
+      "request": "launch",
+      "mainClass": "secondpartial.Herencia",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "gameapi.main.Main",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "gameapi.Main",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "Estudiante",
       "request": "launch",
       "mainClass": "shape2d.Estudiante",
