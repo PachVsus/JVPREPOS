@@ -20,16 +20,14 @@
                 <li style="display: inline; margin-right: 10px;"><a href="#contact">Contacto</a></li>
             </nav>
             <div class="flex items-center space-x-4">
-                
+                <input type="text" placeholder="Search products..." class="border p-2 rounded-md w-64">
                 <button class="relative bg-primary text-white px-4 py-2 rounded-md">
                     Cart <span id="cart-count" class="bg-red-500 text-white text-xs rounded-full px-2 absolute -top-2 -right-2">0</span>
                 </button>
             </div>
         </div>
     </header>
-    <div class="bg-gray-200 text-center py-4">
-        <h2 class="text-xl font-semibold">Compra y Venta Online de Modelos 3D</h2>
-    </div>
+    
     <main class="container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="product-card" id="product-1">
             <img src="https://via.placeholder.com/200" alt="Product" class="w-full h-48 object-cover rounded-md">
@@ -42,17 +40,16 @@
         </div>
     </main>
     
-    <footer class="bg-secondary text-white text-center py-4 mt-10">
-        &copy; 2025 E-Shop. All rights reserved.
+    <footer>
+        <p>&copy; 2025 Meshify. Todos los derechos reservados.</p>
     </footer>
     
     <script>
-        let cartCount = 0;
-        document.querySelectorAll(".add-to-cart").forEach(button => {
-            button.addEventListener("click", function () {
-                cartCount++;
-                document.getElementById("cart-count").textContent = cartCount;
-                alert("Item added to cart!");
+        document.getElementById("search").addEventListener("input", function() {
+            let searchValue = this.value.toLowerCase();
+            document.querySelectorAll(".product-item").forEach(item => {
+                let productName = item.querySelector("h3").textContent.toLowerCase();
+                item.style.display = productName.includes(searchValue) ? "block" : "none";
             });
         });
     </script>
