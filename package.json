@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "@radix-ui/react-slot": "^1.1.2",
+    "@shadcn/ui": "^0.0.4",
+    "bootstrap": "^5.3.3",
+    "class-variance-authority": "^0.7.1",
+    "framer-motion": "^12.4.7",
+    "tailwind-variants": "^0.3.1"
   }
 }

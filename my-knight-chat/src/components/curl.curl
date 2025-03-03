@@ -1,0 +1,8 @@
+curl https://api.openai.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer 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" \
+  -d '{
+    "model": "gpt-3.5-turbo",
+    "messages": [{"role": "system", "content": "You are a medieval knight AI who gives quest-related responses."}, 
+                 {"role": "user", "content": "Tell me about the treasure"}]
+  }'
