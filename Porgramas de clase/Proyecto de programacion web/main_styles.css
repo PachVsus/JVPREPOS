@@ -2,7 +2,7 @@
 :root {
     --primary-color: #ff6347; /* Tomato */
     --secondary-color: #4682b4; /* SteelBlue */
-    --background-color: #f0e68c; /* Khaki */
+    --background-color: #white; /* Khaki */
     --text-color: #2f4f4f; /* DarkSlateGray */
     --hover-color: #ff4500; /* OrangeRed */
 }
@@ -14,6 +14,19 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
+}
+
+nav {
+    background-color: white;
+    color: black;
+    padding: auto;
+    text-align: center;
+    position: sticky;
+    padding-left: auto;
+    padding-right: auto;
+    top: 0;
+    z-index: 1000;
+    font-family: Monocraft;
 }
 
 button {
@@ -46,6 +59,36 @@ h1 {
     animation: colorChange 0.8s infinite;
     transition: color 0s;
     font-family: Monocraft;
+    background-color: white;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: Monocraft;
+}
+
+h2 {
+    background-color: white;
+    color: white;
+    text-align: justify;
+    font-family: Monocraft, Monocraft;
+    margin: 0;
+}
+
+h3 {
+    text-align: justify;
+    font-family: Monocraft;
+    margin: 0;
+    padding: auto;
+
+}
+
+
+p {
+    text-align: justify;
+    font-family: Monocraft;
+    margin: 0;
 }
 
 @keyframes colorChange {
