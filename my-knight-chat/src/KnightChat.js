@@ -11,15 +11,40 @@ export default function KnightChat() {
   const [position, setPosition] = useState(0);
 
   const asciiKnight = `
-      .-\"\"\"\"-.
-     / -   -  \\
-    |  o   o  |
-    |   \_/   |
-     \   -   /
-      '-...-'
-    / |     | \\
-   /  |     |  \\
-  /   |-----|   \\
+        ,/|\,
+      //|O|\\
+     // | | \\
+     || | | ||
+     || | | ||
+     || | | ||
+     || | | ||
+     || | | ||
+     || | | ||
+     || | | ||
+     ||_| |_||
+     || | | ||
+     ||_| |_||
+    /_|_|_|_|_\
+   (___________)
+    |   _   |
+   /|  | |  |\
+  / |  | |  | \
+ /  |__|_|__|  \
+(    |     |    )
+ \   |     |   /
+  \__|_____|__/
+    (_______)
+   /_________\
+  (___________)
+ (_____________)
+  |___________|
+  |___________|
+   |  |   |  |
+   |  |   |  |
+   |  |   |  |
+   |__|   |__|
+  (___)   (___)
+
   `;
 
   const sendMessage = async () => {
@@ -30,30 +55,20 @@ export default function KnightChat() {
     setInput("");
 
     try {
-      const response = await axios.post(
-        "https://api.openai.com/v1/chat/completions",
-        {
-          model: "gpt-3.5-turbo",
-          messages: [
-            { role: "system", content: "You are a medieval knight AI who gives quest-related responses." },
-            { role: "user", content: input }
-          ]
-        },
-        {
-          headers: {
-            "Authorization": `Bearer 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`,
-            "Content-Type": "application/json"
-          }
-        }
-      );
+      const response = await axios.post("http://localhost:11434/api/generate", {
+        model: "mistral",
+        prompt: `You are a medieval knight. Respond in old-style medieval speech. User: "${input}"`,
+        stream: false
+      });
 
-      const botResponse = response.data.choices[0].message.content;
+      const botResponse = response.data.response || "I have no words, traveler...";
 
       setMessages([...newMessages, { text: botResponse, sender: "knight" }]);
       setPosition((prev) => prev + (Math.random() > 0.5 ? 20 : -20));
+
     } catch (error) {
       console.error("Error fetching AI response:", error);
-      setMessages([...newMessages, { text: "I am lost in thought, try again later.", sender: "knight" }]);
+      setMessages([...newMessages, { text: "The kingdom’s magic is weak, try again later.", sender: "knight" }]);
     }
   };
 
