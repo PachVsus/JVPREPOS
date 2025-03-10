@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Test_UnoDos",
+      "request": "launch",
+      "mainClass": "Herencia.Test_UnoDos",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "ExtendedWindow",
       "request": "launch",
       "mainClass": "windows.ExtendedWindow",
