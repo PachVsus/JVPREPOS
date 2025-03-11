@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD USERS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script type="text/javascript" src="/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=hyHnkyDt3uSf10cIP8idG-yXO3VU7QhtyLmj4-S0kpKPw_P11DwcOsHhpBVRfZZ97qP-Sqvxt6hCUs170ZcbwfgrMWI7U7A-UeBQvmvvswoVj_zoGeMyYIcCClUOYAPq_FgreATBFosqJ5awn08qHNRMfee2-rApJ0Jg3-YiFLTtY8TfwiLtzQK7Q-JSQkLJwkWOpxCzyGrunNk1qHWo2k-OnULXm-Ng9JIPxSyXXz7gZ1B50snqctgSagPW3aYcaeRFp1XLWwXJr3xR7KnnWNboJPTt-lsasi-SC5lwXssHlowpy8-EnhrasHYRD-oPkVIWb8B0rYKjuTmJMEYMf8ExX84GIKPNYJ5XGUZKJC7PiSz4slZnAU22Md4WuCVApyOwRUR6WzQjiNLyHXJ-6K70qo3RkV0PLuJV61Z41zxtXzDDaCBb_RG9OAVxTgFZHQoQSFow8Vv0hzccKuDS2_g3MwDMiiH_zVyN-QANbAfQ7luqxg1Iu7D6nMsSb1nwiuWMIH4LHLfOk-OjbtuX_uQ0e2eUys00tRnrSJiPVUVYPZXgDt2nzQp0LAts-jCg5XbqqPjuob8_EvLg4Zp68HyselO6D9lsBNNIdm7vF8pT09GvHZ0pZpHrKdgViiihlvMHlAp2_7oiaeGodmZlIg" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uaW5zdC1mcy1pYWQtcHJvZC5pbnNjbG91ZGdhdGUubmV0LzQ2YWVhZDI0LTIxODItNDY5Mi04NjQ5LTg2ZTQ0NmQzYWRmYi9iMS5odG1sP3Rva2VuPWV5SmhiR2NpT2lKSVV6VXhNaUlzSW5SNWNDSTZJa3BYVkNJc0ltdHBaQ0k2SW1Oa2JpSjkuZXlKeVpYTnZkWEpqWlNJNklpODBObUZsWVdReU5DMHlNVGd5TFRRMk9USXRPRFkwT1MwNE5tVTBORFprTTJGa1ptSXZZakV1YUhSdGJDSXNJblJsYm1GdWRDSTZJbU5oYm5aaGN5SXNJblZ6WlhKZmFXUWlPaUl4TWpjek5EQXdNREF3TURBd05UQXhNVGtpTENKcFlYUWlPakUzTkRFMk16WXpOemNzSW1WNGNDSTZNVGMwTVRjeU1qYzNOMzAuNzQ4eGFZMEd0WTlmendKOUVwT0dwZ0twY2VnRUJYUFBtUThfcDZsOU94M0J1SjJJY1FTNEFWVklPTEZ3azN0bF9nRkNGeTRfTlhkSERRRmZQSUFoeXcmZG93bmxvYWQ9MSZjb250ZW50X3R5cGU9dGV4dCUyZmh0bWw"/><script type='text/javascript' src='https://cdn.inst-fs-iad-prod.inscloudgate.net/uP9Q0SZiV-VZbN3tGeRZ8uKqKf958UixYPOizI0_FZePuky9RHL_tp_Nx3mm1g6Lc-w0ORKXS3yNH2sZub-r1Q=='></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+    <script src="./api_crud.js"></script>
+  <style>
+    .shadow-lg {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <h1 class="text-center shadow-lg"> User Magnament </h1>
+
+
+    <div id="crud-container" class=" container">
+      <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal"> Add</button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="col">1</td>
+            <td scope="col">Adan Rosales</td>
+            <td scope="col">adan.rosales@iteso.mx</td>
+            <td scope="col">
+              <button class="btn btn-warning btn-sm me-2">Edit</button><button class="btn  btn-danger btn-sm" onclick="deleteUser(this)">
+                Eliminate</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Nuevo usuario</td>
+            <td>adan.rosales@iteso.mx</td>
+            <td>
+              <button class="btn btn-warning btn-sm me-2">Edit</button><button class="btn  btn-danger btn-sm ">
+                Eliminate</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <script>
+    function deleteUser(button) {
+      // Find the row to delete
+      var row = button.closest('tr');
+      // Remove the row from the table
+      row.remove();
+      // Optionally, you can add code here to delete the user from the backend/database
+    }
+  </script>
+
+  <!-- modal code -->
+  <div class="modal" tabindex="-1" id="exampleModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Username</label>
+              <input type="text" class="form-control" placeholder="User Name">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">email</label>
+              <input type="email" class="form-control" placeholder="User Name">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="saveChangesBtn" onclick="saveUser()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal code -->
+
+</body>
+
+</html>
