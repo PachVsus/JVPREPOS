@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Test_Country",
+      "request": "launch",
+      "mainClass": "country.Test_Country",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "Superman",
       "request": "launch",
       "mainClass": "example.Superman",
