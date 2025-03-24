@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "ebook.Main",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
+      "name": "Book",
+      "request": "launch",
+      "mainClass": "ebook.Book",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "Test_Country",
       "request": "launch",
       "mainClass": "country.Test_Country",
