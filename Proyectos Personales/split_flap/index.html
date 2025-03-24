@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Split-Flap Display</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #111, #000);
+      color: white;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+
+    .display {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .flap {
+      width: 64px;
+      height: 96px;
+      background: black;
+      color: white;
+      font-size: 3em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      border: 2px solid #555;
+      box-shadow: 0 0 8px #000;
+      transition: all 0.2s ease-in-out;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 1.2em;
+      border-radius: 8px;
+      border: none;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .info {
+      margin-top: 10px;
+      color: #888;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Virtual Split-Flap Display</h1>
+  <div class="display" id="display"></div>
+
+  <input id="input" type="text" placeholder="Type your own message..." maxlength="20" />
+  <p class="info">Displays your input live. Max 20 characters.</p>
+
+  <script>
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:!?'-";
+    const displayEl = document.getElementById('display');
+    const inputEl = document.getElementById('input');
+
+    let currentMessage = "HELLO WORLD";
+    let indexList = [];
+
+    const renderDisplay = (text) => {
+      displayEl.innerHTML = '';
+      indexList = text.toUpperCase().split('').map(char => letters.indexOf(char));
+      text.toUpperCase().split('').forEach((char, idx) => {
+        const flap = document.createElement('div');
+        flap.className = 'flap';
+        flap.textContent = ' ';
+        displayEl.appendChild(flap);
+        animateFlap(flap, char.toUpperCase(), idx * 50);
+      });
+    };
+
+    const animateFlap = (flap, targetChar, delay) => {
+      let current = 0;
+      const target = letters.indexOf(targetChar);
+      setTimeout(() => {
+        const interval = setInterval(() => {
+          flap.textContent = letters[current];
+          current = (current + 1) % letters.length;
+          if (letters[current] === targetChar) {
+            clearInterval(interval);
+            flap.textContent = targetChar;
+          }
+        }, 30);
+      }, delay);
+    };
+
+    inputEl.addEventListener('input', (e) => {
+      const newText = e.target.value.toUpperCase().slice(0, 20);
+      currentMessage = newText || ' ';
+      renderDisplay(currentMessage.padEnd(20, ' '));
+    });
+
+    const messages = ["HELLO WORLD", "WELCOME HOME", "DEPARTURE BOARD", "OPENAI ROCKS"];
+    let i = 0;
+
+    setInterval(() => {
+      if (inputEl.value.trim() === '') {
+        currentMessage = messages[i];
+        renderDisplay(currentMessage.padEnd(20, ' '));
+        i = (i + 1) % messages.length;
+      }
+    }, 4000);
+
+    renderDisplay(currentMessage.padEnd(20, ' '));
+  </script>
+
+</body>
+</html>
