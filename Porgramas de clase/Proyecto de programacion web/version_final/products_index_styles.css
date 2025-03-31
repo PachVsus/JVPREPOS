@@ -8,7 +8,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif, Monocraft;
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
@@ -18,12 +18,18 @@ body {
 
 button {
     background-color: var(--primary-color);
-    color: white;
+    color: red;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    font-family: Monocraft;
+    text-align: justify auto;
+    padding-left: auto;
+    padding-right: auto;
+    padding-inline: auto;
+    text-align: center;
 }
 
 button:hover {
@@ -39,7 +45,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    font-family: Monocraft;
+    font-family: Monocraft 1;
 }
 
 header:animation {
@@ -51,7 +57,37 @@ header:animation {
 h1 {
     animation: colorChange 0.8s infinite;
     transition: color 0s;
+    background-color: white;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     font-family: Monocraft;
+    color: black;
+}
+
+h2 {
+    background-color: white;
+    color: white;
+    text-align: justify;
+    font-family: Monocraft, Monocraft;
+    margin: 0;
+}
+
+h3 {
+    text-align: justify;
+    font-family: Monocraft;
+    margin: 0;
+    padding: auto;
+
+}
+
+
+p {
+    text-align: justify;
+    font-family: Monocraft;
+    margin: 0;
 }
 
 @keyframes colorChange {
@@ -69,18 +105,14 @@ h1 {
 }
 
 nav {
-    background-color: white;
     color: black;
     padding: auto;
     text-align: center;
     position: sticky;
     padding-left: auto;
     padding-right: auto;
-    padding-inline: auto;
     top: 0;
     z-index: 1000;
-    display: flex;
-    flex-direction: column;
     font-family: Monocraft;
 }
 
@@ -102,13 +134,21 @@ nav .nav-links {
     list-style: none;
     padding: auto;
     margin: 0;
+    font-family: Monocraft;
+    text-align: justify auto;
+    color: black;
 }
 
 nav a {
-    color: white;
+    color: black;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
+    font-family: Monocraft;
+    text-align: center;
+    padding-left: auto;
+    padding-right: auto;
+    padding-inline: auto;
 }
 
 nav a:hover {
@@ -142,7 +182,6 @@ nav a:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     font-family: Monocraft;
-    text-align: justify auto;
 }
 
 .product-item:hover {
@@ -153,7 +192,6 @@ nav a:hover {
     width: 100%;
     height: auto;
     border-radius: 5px;
-    text-align: justify auto;
 }
 
 .buy-button {
@@ -176,9 +214,29 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
-    position: relative;
+    position: fixed;
     width: 100%;
+    bottom: 0;
     margin-top: 20px;
     font-family: Monocraft;
     text-align: justify auto;
+}
+
+product-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    font-family: Monocraft;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
 }

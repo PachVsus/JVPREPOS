@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "GDrawer",
+      "request": "launch",
+      "mainClass": "ejercicios_de_estres.GDrawer",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
+      "name": "Matrix",
+      "request": "launch",
+      "mainClass": "matrix.Matrix",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "Main",
       "request": "launch",
       "mainClass": "ebook.Main",

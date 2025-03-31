@@ -41,3 +41,43 @@ function toggleMobileNav() {
 }
 
 document.getElementById("mobile-nav-toggle")?.addEventListener("click", toggleMobileNav);
+
+document.addEventListener("DOMContentLoaded", () => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    updateCartCount();
+
+    document.querySelectorAll(".add-to-cart").forEach((button, index) => {
+        button.addEventListener("click", () => {
+            const productItem = button.closest(".product-card, .product-item");
+            const productName = productItem.querySelector("h2").textContent.trim();
+            const productPrice = productItem.querySelector("span").textContent.trim();
+            const productImage = productItem.querySelector("img").src;
+
+            const product = {
+                id: Date.now(),
+                name: productName,
+                price: productPrice,
+                image: productImage,
+                quantity: 1
+            };
+
+            cart.push(product);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartCount();
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Producto añadido',
+                text: `"${productName}" se ha agregado al carrito.`,
+                timer: 1500,
+                showConfirmButton: false
+            });
+        });
+    });
+
+    function updateCartCount() {
+        const count = JSON.parse(localStorage.getItem("cart"))?.length || 0;
+        const badge = document.getElementById("cart-count");
+        if (badge) badge.textContent = count;
+    }
+});

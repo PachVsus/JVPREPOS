@@ -36,11 +36,17 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    font-family: Monocraft;
+    text-align: justify auto;
+    padding-left: auto;
+    padding-right: auto;
+    padding-inline: auto;
+    text-align: center;
 }
 
 button:hover {
     background-color: var(--hover-color);
-    transform: scale(1.05);
+    transform: scale(1.15);
 }
 
 header {
@@ -51,6 +57,12 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    font-family: Monocraft;
+}
+
+header:animation {
+    animation: colorChange 0.8s infinite;
+    transition: color 0s;
     font-family: Monocraft;
 }
 
@@ -145,5 +157,19 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+    font-family: Monocraft;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.product-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
     font-family: Monocraft;
 }

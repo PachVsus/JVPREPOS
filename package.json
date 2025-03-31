@@ -4,7 +4,29 @@
     "@shadcn/ui": "^0.0.4",
     "bootstrap": "^5.3.3",
     "class-variance-authority": "^0.7.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "framer-motion": "^12.4.7",
+    "mongoose": "^8.13.0",
     "tailwind-variants": "^0.3.1"
-  }
+  },
+  "name": "jvprepos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PachVsus/JVPREPOS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PachVsus/JVPREPOS/issues"
+  },
+  "homepage": "https://github.com/PachVsus/JVPREPOS#readme"
 }
