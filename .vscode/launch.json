@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Caso1",
+      "request": "launch",
+      "mainClass": "metodos_genericos.Caso1",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "GDrawer",
       "request": "launch",
       "mainClass": "ejercicios_de_estres.GDrawer",
