@@ -1,10 +1,10 @@
-require('dotenv').config();
-const express = require('express');
-const connectDB = require('./config/database');
-const setupSwagger = require("./config/swaggerConfig");
-const userRoutes = require('./routes/user.routes');
-const productRoutes = require('./routes/product.routes');
-const orderRoutes = require('./routes/order.routes');
+import 'dotenv/config';
+import express, { json } from 'express';
+import connectDB from './config/database';
+import setupSwagger from "./config/swaggerConfig";
+import userRoutes from './routes/user.routes';
+import productRoutes from './routes/product.routes';
+import orderRoutes from './routes/order.routes';
 
 
 const app = express();
@@ -17,7 +17,7 @@ connectDB();
 // To expect Content-Type: application/json and process
 // https://www.geeksforgeeks.org/express-js-express-json-function/
 
-app.use(express.json());
+app.use(json());
 setupSwagger(app);
 
 
