@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Clase_sorting",
+      "request": "launch",
+      "mainClass": "sorting.Clase_sorting",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
+      "name": "Manhattan",
+      "request": "launch",
+      "mainClass": "clase_var_args.Manhattan",
+      "projectName": "JVPREPOS_778a2a96"
+    },
+    {
+      "type": "java",
       "name": "Caso1",
       "request": "launch",
       "mainClass": "metodos_genericos.Caso1",
