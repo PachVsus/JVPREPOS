@@ -8,7 +8,18 @@ const swaggerDefinition = {
     description: 'Documentación de la API',
   },
   servers: [{ url: 'http://localhost:5000' }],
+  components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      },
+    },
+  },
+  security: [{ bearerAuth: [] }],
 };
+
 
 const options = {
   swaggerDefinition,
