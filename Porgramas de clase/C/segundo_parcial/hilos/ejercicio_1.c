@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <stdlib.h>
-#include <pthread.h>
 
 #define NUM_THREADS 4   // Número de hilos
 #define NUM_TERMS 1000000   // Número de términos para la aproximación de Pi
@@ -34,8 +33,7 @@ void *calculate_pi(void *arg) {   // Función que calcula Pi usando la serie de 
 int main() {    // Función principal
     pthread_t threads[NUM_THREADS]; // Arreglo para almacenar los hilos
     double pi = 0.0;    // Variable para almacenar el valor final de Pi
-    pthread_mutex_t pi_mutex = PTHREAD_MUTEX_INITIALIZER; // Mutex para proteger la variable pi
-    double pi = 0.0;    // Variable para almacenar el valor final de Pi
+    ThreadData thread_data[NUM_THREADS]; // Arreglo para almacenar datos de los hilos
 
     for (int i = 0; i < NUM_THREADS; i++) {   // Crea los hilos
         thread_data[i].thread_id = i;   // Asigna el ID del hilo
@@ -52,16 +50,14 @@ int main() {    // Función principal
     for (int i = 0; i < NUM_THREADS; i++) {  // Une los hilos
         if (pthread_join(threads[i], NULL) != 0) {  // Espera a que el hilo termine
             perror("Error al unir hilo");   // Manejo de error con salida
-        pthread_mutex_lock(&pi_mutex); // Bloquea el mutex antes de actualizar pi
-        pi += thread_data[i].result;   // Suma el resultado parcial al total
-        pthread_mutex_unlock(&pi_mutex); // Desbloquea el mutex después de actualizar pi
         }
-        pi += thread_data[i].result;    // Suma el resultado parcial al total
+        pi += thread_data[i].result;   // Suma el resultado parcial al total
     }
-    pthread_mutex_destroy(&pi_mutex); // Destruye el mutex antes de salir
-    return 0;
+
     pi *= 4.0;  // Multiplica por 4 para obtener el valor final de Pi
-    printf("Valor calculado de Pi: %.15f\n", pi);   // Muestra el valor calculado de Pi
+
+    printf("El valor aproximado de Pi es: %.15f\n", pi); // Imprime el resultado
+    printf("El valor real de Pi es: %.15f\n", PI); // Imprime el valor real de Pi
 
     return 0;
 }

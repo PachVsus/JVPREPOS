@@ -1,138 +1,63 @@
 // Jesus Vargas Pacheco
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <pthread.h>
-#include <time.h>
+#include <stdlib.h>
 
-#define MAX 10001    // Máximo valor para la moda (10000.00)
+#define NUM_THREADS 4   // Número de hilos
+#define NUM_TERMS 1000000   // Número de términos para la aproximación de Pi
+#define PI 3.14159265358979323846   // Valor de Pi para comparación
 
-float *array;
-int N;
+typedef struct {    // Estructura para pasar datos a los hilos
+    int thread_id;  // ID del hilo
+    int num_threads;    // Número total de hilos
+    int num_terms;  // Número total de términos
+    double result;  // Resultado parcial del hilo
+} ThreadData;   // Alias para la estructura ThreadData
 
-void *calcular_media(void *arg) {   // Función para calcular la media
-    float suma = 0;  // Inicializa la suma
-    for (int i = 0; i < N; i++) {   // Recorre el arreglo
-        suma += array[i];    // Suma los elementos
-    }
-    float *media = malloc(sizeof(float));   // Reserva memoria para la media
-    if (media == NULL) {   // Manejo de error
-        perror("Error al reservar memoria para la media");
-        pthread_exit(NULL); // Termina el hilo si hay error
-    }
-    *media = suma / N;    // Calcula la media
-    pthread_exit(media); // Termina el hilo y devuelve la media
-}
+void *calculate_pi(void *arg) {   // Función que calcula Pi usando la serie de Leibniz
+    ThreadData *data = (ThreadData *)arg;   // Convierte el argumento a ThreadData
+    int start = data->thread_id * (data->num_terms / data->num_threads);    // Calcula el inicio del hilo
+    int end = start + (data->num_terms / data->num_threads);    // Calcula el final del hilo
+    double sum = 0.0;   // Inicializa la suma parcial
 
-void *calcular_moda(void *arg) {   // Función para calcular la moda
-    int *frecuencia = calloc(MAX, sizeof(int));  // Inicializa el arreglo de frecuencias
-    if (frecuencia == NULL) {   // Manejo de error
-        perror("Error al reservar memoria para la frecuencia");
-        pthread_exit(NULL); // Termina el hilo si hay error
-    }
-    for (int i = 0; i < N; i++) {   // Recorre el arreglo
-        frecuencia[(int)(array[i] * 100)]++; // Incrementa la frecuencia
+    for (int i = start; i < end; i++) {   // Itera sobre los términos asignados al hilo
+        double term = (i % 2 == 0 ? 1.0 : -1.0) / (2 * i + 1);  // Calcula el término de la serie
+        sum += term;    // Suma el término a la suma parcial
     }
 
-    int max_frecuencia = 0;   // Inicializa la frecuencia máxima
-    for (int i = 0; i < MAX; i++) {   // Busca la moda
-        if (frecuencia[i] > max_frecuencia) {
-            max_frecuencia = frecuencia[i];   // Actualiza la frecuencia máxima
-        }
-    }
-    float *moda = malloc(sizeof(float));    // Reserva memoria para la moda
-    if (moda == NULL) {   // Manejo de error
-        perror("Error al reservar memoria para la moda");
-        free(frecuencia);   // Libera memoria si hay error
-        pthread_exit(NULL); // Termina el hilo si hay error
-    }
-    *moda = -1;  // Inicializa la moda
-    for (int i = 0; i < MAX; i++) {  // Busca la moda
-        if (frecuencia[i] == max_frecuencia) {  // Si la frecuencia coincide con la máxima
-            *moda = i / 100.0;  // Actualiza la moda
-            break;  // Sale del bucle al encontrar la primera moda
-        }
-    }
-    free(frecuencia);    // Libera memoria del arreglo de frecuencias
-    pthread_exit(moda); // Termina el hilo y devuelve la moda
-}
-
-void *calcular_mediana(void *arg) {  // Función para calcular la mediana
-    float *ordenado = malloc(N * sizeof(float));  // Reserva memoria para el arreglo ordenado
-    if (ordenado == NULL) {   // Manejo de error
-        perror("Error al reservar memoria para el arreglo ordenado");
-        pthread_exit(NULL); // Termina el hilo si hay error
-    }
-    for (int i = 0; i < N; i++) {   // Copia el arreglo original al nuevo arreglo
-        ordenado[i] = array[i];   // Copia cada elemento
-    }
-
-    for (int i = 0; i < N - 1; i++) {   // Ordena el arreglo usando burbuja
-        for (int j = i + 1; j < N; j++) {   // Recorre el arreglo
-            if (ordenado[i] > ordenado[j]) {    // Si el elemento actual es mayor que el siguiente
-                // Intercambia los elementos
-                float temp = ordenado[i]; // Almacena el elemento actual
-                ordenado[i] = ordenado[j];  // Asigna el siguiente elemento al actual
-                ordenado[j] = temp;   // Asigna el elemento actual al siguiente
-            }
-        }
-    }
-
-    float *mediana = malloc(sizeof(float));  // Reserva memoria para la mediana
-    if (mediana == NULL) {   // Manejo de error
-        perror("Error al reservar memoria para la mediana");
-        free(ordenado);   // Libera memoria si hay error
-        pthread_exit(NULL); // Termina el hilo si hay error
-    }
-    if (N % 2 == 0) {   // Si el número de elementos es par
-        *mediana = (ordenado[N / 2 - 1] + ordenado[N / 2]) / 2;  // Calcula la mediana
-    } else {
-        *mediana = ordenado[N / 2];    // Si es impar, toma el elemento del medio
-    }
-    free(ordenado);   // Libera memoria del arreglo ordenado
-    pthread_exit(mediana);   // Termina el hilo y devuelve la mediana
+    data->result = sum; // Almacena el resultado parcial en la estructura
+    pthread_exit(NULL); // Termina el hilo
 }
 
 int main() {    // Función principal
-    printf("Ingrese el número de elementos (N): "); // Solicita el número de elementos
-    scanf("%d", &N);    // Lee el número de elementos
+    pthread_t threads[NUM_THREADS]; // Arreglo para almacenar los hilos
+    double pi = 0.0;    // Variable para almacenar el valor final de Pi
+    ThreadData thread_data[NUM_THREADS]; // Arreglo para almacenar datos de los hilos
 
-    array = malloc(N * sizeof(float));  // Reserva memoria para el arreglo
-    if (array == NULL) {   // Manejo de error
-        perror("Error al reservar memoria para el arreglo");
-        exit(EXIT_FAILURE); // Termina el programa si hay error
+    for (int i = 0; i < NUM_THREADS; i++) {   // Crea los hilos
+        thread_data[i].thread_id = i;   // Asigna el ID del hilo
+        thread_data[i].num_threads = NUM_THREADS;   // Asigna el número total de hilos
+        thread_data[i].num_terms = NUM_TERMS;   // Asigna el número total de términos
+        thread_data[i].result = 0.0;    // Inicializa el resultado parcial
+
+        if (pthread_create(&threads[i], NULL, calculate_pi, &thread_data[i]) != 0) {    // Crea el hilo
+            perror("Error al crear hilo");  // Manejo de error con salida
+            exit(EXIT_FAILURE); // Termina el programa si hay error
+        }
     }
-    srand(time(NULL));  // Inicializa la semilla para la generación aleatoria
-    for (int i = 0; i < N; i++) {   // Genera números aleatorios
-        array[i] = (rand() % 10000) / 100.0;    // Genera un número aleatorio entre 0.00 y 99.99
+
+    for (int i = 0; i < NUM_THREADS; i++) {  // Une los hilos
+        if (pthread_join(threads[i], NULL) != 0) {  // Espera a que el hilo termine
+            perror("Error al unir hilo");   // Manejo de error con salida
+        }
+        pi += thread_data[i].result;   // Suma el resultado parcial al total
     }
 
-    printf("Arreglo generado:\n");  // Muestra el arreglo generado
-    for (int i = 0; i < N; i++) {   // Recorre el arreglo
-        printf("%.2f ", array[i]);  // Muestra cada elemento
-    }
-    printf("\n");
+    pi *= 4.0;  // Multiplica por 4 para obtener el valor final de Pi
 
-    pthread_t hilo_media, hilo_moda, hilo_mediana;  // Declara los hilos
-
-    pthread_create(&hilo_media, NULL, calcular_media, NULL);   // Crea el hilo para la media
-    pthread_create(&hilo_moda, NULL, calcular_moda, NULL);   // Crea el hilo para la moda
-    pthread_create(&hilo_mediana, NULL, calcular_mediana, NULL);   // Crea el hilo para la mediana
-
-    float *media, *moda, *mediana;    // Declara punteros para almacenar los resultados
-    pthread_join(hilo_media, (void **)&media);  // Une el hilo de la media y obtiene el resultado
-    pthread_join(hilo_moda, (void **)&moda);  // Une el hilo de la moda y obtiene el resultado
-    pthread_join(hilo_mediana, (void **)&mediana);  // Une el hilo de la mediana y obtiene el resultado
-
-    printf("Media: %.2f\n", *media); // Muestra la media
-    printf("Moda: %.2f\n", *moda);  // Muestra la moda
-    printf("Mediana: %.2f\n", *mediana); // Muestra la mediana
-
-    free(media);   // Libera memoria de la media
-    free(moda);  // Libera memoria de la moda
-    free(mediana);   // Libera memoria de la mediana
-    free(array);    // Libera memoria del arreglo
-    printf("Memoria liberada.\n");   // Mensaje de liberación de memoria
+    printf("El valor aproximado de Pi es: %.15f\n", pi); // Imprime el resultado
+    printf("El valor real de Pi es: %.15f\n", PI); // Imprime el valor real de Pi
 
     return 0;
 }
