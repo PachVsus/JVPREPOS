@@ -64,8 +64,18 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "java.debug.settings.onBuildFailureProceed": true,
+"java.configuration.runtimes": [
+{
+  "name": "JavaSE-23",
+  "path": "C:\\Program Files\\Java\\jdk-23",
+  "default": true
+}
+],
+"java.project.sourcePaths": ["src"],
+"java.project.outputPath": "bin",
+
   "files.autoSave": "onFocusChange",
-  "editor.fontFamily": "Monocraft"
+  "editor.fontFamily": "Monocraft",
 
   
 }
