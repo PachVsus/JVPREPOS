@@ -1,8 +1,0 @@
-{
-    "java.project.sourcePaths": [
-        "iteso\\com",
-        "src"
-    ],
-    "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": []
-}
