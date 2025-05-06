@@ -64,18 +64,21 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "java.debug.settings.onBuildFailureProceed": true,
-"java.configuration.runtimes": [
-{
-  "name": "JavaSE-23",
-  "path": "C:\\Program Files\\Java\\jdk-23",
-  "default": true
-}
-],
-"java.project.sourcePaths": ["src"],
-"java.project.outputPath": "bin",
-
+  "java.project.sourcePaths": [
+    "src",
+    "Porgramas de clase/Java/Poo/practica_23"
+  ],
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-23",
+      "path": "C:\\Program Files\\Java\\jdk-23",
+      "default": true
+    }
+  ],
   "files.autoSave": "onFocusChange",
   "editor.fontFamily": "Monocraft",
+  "java.project.referencedLibraries": [],
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable",
 
   
 }
