@@ -1,0 +1,53 @@
+[
+    {
+        "Shirt": {
+            "name": "White Shirt",
+            "type": "Shirt",
+            "main_color": "White",
+            "secondary_color": "",
+            "style": "Minimalist",
+            "image_path": "C:/Users/jv260/Downloads/Men White Shirt.jpg"
+        },
+        "Jacket": {
+            "name": "Black Leather Jacket",
+            "type": "Jacket",
+            "main_color": "Black",
+            "secondary_color": "",
+            "style": "Punk",
+            "image_path": "C:/Users/jv260/Downloads/men leather jacket.jpg"
+        },
+        "Pants": {
+            "name": "Blue denim jeans",
+            "type": "Pants",
+            "main_color": "Blue",
+            "secondary_color": "",
+            "style": "Casual",
+            "image_path": "C:/Users/jv260/Downloads/men blue denim jeans.jpg"
+        },
+        "Underwear": {
+            "name": "Dark Blue Rounderbum briefs",
+            "type": "Underwear",
+            "main_color": "Dark Blue",
+            "secondary_color": "white",
+            "style": "",
+            "image_path": "C:/Users/jv260/Downloads/dark blue roundebum briefs.jpg"
+        },
+        "Shoes": {
+            "name": "Black Boots",
+            "type": "Shoes",
+            "main_color": "Black",
+            "secondary_color": "",
+            "style": "Rock and Roll",
+            "image_path": "C:/Users/jv260/Downloads/Men black boots.png"
+        },
+        "Watch": {
+            "name": "Casio G-Shock GMW-B5000",
+            "type": "Watch",
+            "main_color": "Black",
+            "secondary_color": "",
+            "style": "",
+            "image_path": "C:/Users/jv260/Downloads/Casio G-Shock.jpg"
+        },
+        "Cap": null
+    }
+]
